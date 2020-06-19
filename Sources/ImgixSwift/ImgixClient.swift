@@ -92,6 +92,7 @@ import Foundation
 
     fileprivate func sanitizePath(_ path: String) -> String {
         var path = path
+        path = path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? path
 
         if path.hasPrefix("http://") || path.hasPrefix("https://") {
             path = path.ixEncodeUriComponent()
